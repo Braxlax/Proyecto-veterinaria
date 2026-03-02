@@ -1,0 +1,42 @@
+<div class="login-wrapper">
+
+  <div class="login-card">
+
+    <div class="text-center mb-4">
+      <h2 class="fw-bold">Veterinaria El Seguro</h2>
+      <p class="text-muted">Sistema de Gestión</p>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Usuario</label>
+      <input type="text"
+             class="form-control"
+             placeholder="Ingrese su usuario"
+             [(ngModel)]="username">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Contraseña</label>
+      <input type="password"
+             class="form-control"
+             placeholder="Ingrese su contraseña"
+             [(ngModel)]="password">
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger">
+      {{ error }}
+    </div>
+
+    <button class="btn btn-primary w-100 mt-2"
+            (click)="iniciarSesion()">
+      Ingresar
+    </button>
+
+    <div class="mt-4 text-center small text-muted">
+      <div><strong>Admin:</strong> admin / 1234</div>
+      <div><strong>Usuario:</strong> usuario / 1234</div>
+    </div>
+
+  </div>
+
+</div>

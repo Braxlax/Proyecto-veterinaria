@@ -1,0 +1,64 @@
+<div class="container mt-4">
+
+  <h2 class="mb-4">Gestión de Dueños</h2>
+
+  
+  <div class="card p-3 mb-4 shadow-sm">
+    <h5 class="mb-3">Agregar Nuevo Dueño</h5>
+
+    <div class="mb-2">
+      <input 
+        type="text"
+        class="form-control"
+        placeholder="Nombre"
+        [(ngModel)]="nuevoNombre">
+    </div>
+
+    <div class="mb-2">
+      <input 
+        type="text"
+        class="form-control"
+        placeholder="DNI"
+        [(ngModel)]="nuevoDni">
+    </div>
+
+    <button 
+      class="btn btn-primary"
+      (click)="guardarDueno()">
+      {{ modoEdicion ? 'Actualizar' : 'Agregar' }}
+    </button>
+  </div>
+
+  
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>DNI</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dueno of duenos">
+        <td>{{ dueno.id }}</td>
+        <td>{{ dueno.nombre }}</td>
+        <td>{{ dueno.dni }}</td>
+        <td>
+           <button 
+            class="btn btn-warning btn-sm me-2"
+            (click)="editarDueno(dueno)">
+            Editar
+            </button>
+           <button 
+            class="btn btn-danger btn-sm"
+            (click)="eliminarDueno(dueno.id)">
+            Eliminar
+           </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+

@@ -1,0 +1,66 @@
+<div class="container mt-4">
+
+  <h2 class="mb-4">Gestión de Veterinarios</h2>
+
+  <!-- 🔹 FORMULARIO -->
+  <div class="card p-3 mb-4 shadow-sm">
+    <h5 class="mb-3">
+      {{ modoEdicion ? 'Editar Veterinario' : 'Agregar Veterinario' }}
+    </h5>
+
+    <div class="mb-2">
+      <input 
+        type="text"
+        class="form-control"
+        placeholder="Nombre"
+        [(ngModel)]="nuevoNombre">
+    </div>
+
+    <div class="mb-2">
+      <input 
+        type="text"
+        class="form-control"
+        placeholder="DNI"
+        [(ngModel)]="nuevoDni">
+    </div>
+
+    <button 
+      class="btn btn-success"
+      (click)="guardarVeterinario()">
+      {{ modoEdicion ? 'Actualizar' : 'Agregar' }}
+    </button>
+  </div>
+
+  <!-- 🔹 TABLA -->
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>DNI</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vet of veterinarios">
+        <td>{{ vet.id }}</td>
+        <td>{{ vet.nombre }}</td>
+        <td>{{ vet.dni }}</td>
+        <td>
+          <button 
+            class="btn btn-warning btn-sm me-2"
+            (click)="editarVeterinario(vet)">
+            Editar
+          </button>
+
+          <button 
+            class="btn btn-danger btn-sm"
+            (click)="eliminarVeterinario(vet.id)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
